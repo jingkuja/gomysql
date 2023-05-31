@@ -1,7 +1,7 @@
 {
   "user": "root",
   "pass": "******",
-  "host": "******",
+  "host": "36.147.6.69"
   "port": "9001",
   "db_name": "test"
 }
