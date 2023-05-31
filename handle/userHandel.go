@@ -8,7 +8,7 @@ import (
 	restful "github.com/emicklei/go-restful/v3"
 )
 
-var mylog = log.NewFlieLogger("debug", "./", "now.log", 100*1024*1024)
+var mylog = log.NewFlieLogger("debug", "./", 100*1024*1024)
 
 func PostUser(req *restful.Request, resp *restful.Response) {
 	u := &user.User{}

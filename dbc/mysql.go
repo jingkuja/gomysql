@@ -14,7 +14,7 @@ var lock = &sync.Mutex{}
 
 var db *sqlx.DB
 
-var mylog = log.NewFlieLogger("debug", "./", "now.log", 100*1024*1024)
+var mylog = log.NewFlieLogger("debug", "./", 100*1024*1024)
 
 func MySQL() *sqlx.DB {
 	if db == nil {

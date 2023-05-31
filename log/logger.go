@@ -81,16 +81,17 @@ type FileLogger struct {
 }
 
 // 构造函数
-func NewFlieLogger(LeveStr, fp, fn string, size int64) *FileLogger {
+func NewFlieLogger(LeveStr string, fp string, size int64) *FileLogger {
 
 	level, err := paraLogLevel(LeveStr)
+	filename := LeveStr + ".log"
 	if err != nil {
 		panic(err)
 	}
 	f1 := &FileLogger{
 		Level:       level,
 		filePath:    fp,
-		fileName:    fn,
+		fileName:    filename,
 		maxFileSize: size,
 	}
 	err = f1.initFile()
@@ -109,7 +110,7 @@ func (f *FileLogger) initFile() error {
 		return err
 	}
 
-	errFileObj, err := os.OpenFile(join+".err", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	errFileObj, err := os.OpenFile("err"+join, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Printf("open log fail ,err: %v\n", err)
 		return err
